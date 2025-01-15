@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/google/go-github/v57/github"
 	"golang.org/x/oauth2"
@@ -62,7 +63,7 @@ func main() {
 	for _, issue := range result.Issues {
 		repo := *issue.RepositoryURL
 		repoName := repo[strings.LastIndex(repo, "/")+1:]
-		
+
 		fmt.Printf("Repository: %s\n", repoName)
 		fmt.Printf("Title: %s\n", *issue.Title)
 		fmt.Printf("URL: %s\n", *issue.HTMLURL)
